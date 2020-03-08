@@ -13,7 +13,7 @@ from openpyxl import load_workbook   # 操作Excel必须要引用的库
 
 
 
-class Case:
+class Cases:
     def __init__(self):
         self.id = None
         self.title = None
@@ -37,7 +37,7 @@ class DoExcel:
         cases = []
         for i in range(2, sheet.max_row +1 ):
             dictdata = {} # 请求参数用字典存储
-            case = Case()
+            case = Cases()
             case.id = sheet.cell(i, 1).value
             case.title = sheet.cell(i, 2).value
             case.api = sheet.cell(i, 3).value
