@@ -10,20 +10,20 @@
 
 import unittest
 from libnew import HTMLTestRunnerNew
-from test_case.test_inOrUpElectricityPrice import TestinOrUpElectricityPrice
+from test_case.TestMethod import TestMethod
 from common import contants
 import datetime
 
 suite = unittest.TestSuite()
 loader = unittest.TestLoader()
 
-suite.addTest(loader.loadTestsFromTestCase(TestinOrUpElectricityPrice))
+suite.addTest(loader.loadTestsFromTestCase(TestMethod))
 
 report = contants.report_dir
 test_time = datetime.date.today()
 
 with open(report, "wb") as file:
-    runner = HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2, title=str(test_time) + "测试报告", tester="YOYO")
+    runner = HTMLTestRunnerNew.HTMLTestRunner(stream=file, verbosity=2, title=str(test_time) + "接口自动化测试报告", tester="YOYO")
 
     runner.run(suite)
 

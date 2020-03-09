@@ -41,10 +41,11 @@ class DoExcel:
             case.id = sheet.cell(i, 1).value
             case.title = sheet.cell(i, 2).value
             case.api = sheet.cell(i, 3).value
+            case.data = sheet.cell(i, 4).value
             case.expected = sheet.cell(i, 5).value
 
-            dictdata['data'] = sheet.cell(i, 4).value
-            case.data = dictdata
+            # dictdata['data'] = sheet.cell(i, 4).value
+            # case.data = dictdata
             cases.append(case)
         return cases
 
@@ -58,7 +59,8 @@ if __name__ =="__main__":
     case_data = common.contants.case_data
     excel = DoExcel(case_data, "Sheet1").read_data()
     for i in excel:
-        print( i.expected)
+        print( i.data)
+        print(type(i.data))
 
 
 

@@ -26,5 +26,3 @@ case_data = os.path.join(test_data_dir, "testdata.xlsx")
 result_dir = os.path.join(base_dir, "test_result")
 report_dir = os.path.join(result_dir, "test_report.html")
 
-# 日志文件路径
-log_dir = os.path.join(base_dir, "log")
