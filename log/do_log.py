@@ -1,5 +1,5 @@
 # -*- coding:utf-8 _*-
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 #   author : YOYO
 #   time :  2020/3/9 21:17
@@ -9,20 +9,23 @@
 #   function： 创建日志收集系统
 
 import logging
-import common.contants
 from config_file.read_conf import ReadConf
+import datetime
 
+
+time = datetime.date.today()
 # 获取配置文件里关于日志的数据
 conf = ReadConf()
 name = conf.get_value("LOG", "name")
 in_level = conf.get_value("LOG", "in_level")
 out_level = conf.get_value("LOG", "out_level")
 out_file_level = conf.get_value("LOG", "out_file_level")
-file_path = conf.get_value("LOG", "file_path")
+file_path = conf.get_value("LOG", "file_path") + name + str(time) + '.txt'
 log_format = conf.get_value("LOG", "log_format")
 
-log_dir = common.contants.log_dir
+
 class DoLog:
+
     def mylog(self, level, msg):
         # 创建一个日志收集器
         my_logger = logging.getLogger(name)
@@ -36,7 +39,7 @@ class DoLog:
         fh.setLevel(out_file_level)
         # 设置日志输出格式
         fh.setFormatter(formatter)
-        #对接
+        # 对接
         my_logger.addHandler(fh)
 
         if level == "DEBUG":
@@ -66,7 +69,6 @@ class DoLog:
 
     def critical(self, msg):
         self.mylog("CRITICAL", msg)
-
 
 
 if __name__ == "__main__":

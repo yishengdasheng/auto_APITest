@@ -1,5 +1,5 @@
 # -*- coding:utf-8 _*-
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 #   author : YOYO
 #   time :  2020/3/8 16:20

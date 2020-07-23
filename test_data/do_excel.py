@@ -1,5 +1,5 @@
 # -*- coding:utf-8 _*-
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 #   author : YOYO
 #   time :  2020/3/5 20:10
@@ -10,7 +10,6 @@
 
 import common.contants
 from openpyxl import load_workbook   # 操作Excel必须要引用的库
-
 
 
 class Cases:
@@ -55,7 +54,7 @@ class DoExcel:
         excel.save(self.filename)
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     case_data = common.contants.case_data
     excel = DoExcel(case_data, "Sheet1").read_data()
     for i in excel:
