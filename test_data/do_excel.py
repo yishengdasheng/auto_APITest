@@ -35,7 +35,6 @@ class DoExcel:
         sheet = self.open_sheet()[1]
         cases = []
         for i in range(2, sheet.max_row +1 ):
-            dictdata = {} # 请求参数用字典存储
             case = Cases()
             case.id = sheet.cell(i, 1).value
             case.title = sheet.cell(i, 2).value
@@ -43,12 +42,10 @@ class DoExcel:
             case.data = sheet.cell(i, 4).value
             case.expected = sheet.cell(i, 5).value
 
-            # dictdata['data'] = sheet.cell(i, 4).value
-            # case.data = dictdata
             cases.append(case)
         return cases
 
-    def write_data(self, row, column, value):
+    def write_data(self, row, column, value=None):
         excel, sheet = self.open_sheet()
         sheet.cell(row, column).value = value
         excel.save(self.filename)

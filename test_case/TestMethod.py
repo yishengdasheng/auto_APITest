@@ -9,7 +9,7 @@
 #   function： 测试类
 
 import unittest
-import json
+import re
 import requests
 import common.contants
 from config_file.read_conf import ReadConf
@@ -23,8 +23,12 @@ cases = DoExcel(case_data, "Sheet1").read_data()
 
 # 获取测试环境URL和headers
 conf = ReadConf()
-per_url = conf.get_value("URL", "wenzhou_url")
 header = conf.get_value("HEAD", "headers")
+# 温州政府
+wenzhou_gov_url = conf.get_value("URL", "wenzhou_gov_url")
+# 温州企业
+wenzhou_ent_url = conf.get_value("URL", "wenzhou_ent_url")
+
 
 
 @ddt
@@ -33,8 +37,13 @@ class TestMethod(unittest.TestCase):
     # 只需要维护Excel表格的用例
     @data(*cases)
     def test_request(self, case):
-        # 拼接URL字段
-        url = per_url + case.api
+
+        # 根据用例title的前缀判断是拼接哪个环境的per_url
+        if re.match(r"wenzhou_gov*", case.title):
+            url = wenzhou_gov_url + case.api
+        elif re.match(r"wenzhou_ent*", case.title):
+            url = wenzhou_ent_url + case.api
+
         # 如果data格式不对，就转化一下,变成字典,再变成json        # 这样太麻烦了，直接使用原本的数据就可以，json格式就相当于是字典形式的字符串
         # if case.data is not None and type(case.data) == str:
         #     # data = json.loads(case.data)
@@ -42,10 +51,7 @@ class TestMethod(unittest.TestCase):
         my_logger = DoLog()
         my_logger.info("*********************")
         my_logger.info("正在执行第{}条用例，请求参数：{}".format(case.id, case.data))
-        resp = requests.request(method="POST", url=url, headers=eval(header), data=case.data)
-        # 请求成功的情况下进行断言
-        # if resp.status_code == 200:
-        #     actual_data = resp.text
+        resp = requests.request(method="POST", url=url, headers=eval(header), data=case.data.encode("utf-8"))
         try:
             actual_data = resp.text
 
@@ -60,6 +66,7 @@ class TestMethod(unittest.TestCase):
             print("请求状态：{}".format(resp.status_code))
             print("接口请求失败")
             my_logger.error("执行失败\n 错误信息：{}".format(e2))
+            raise e2
         finally:
             my_logger.info("******回写数据*****")
             DoExcel(case_data, "Sheet1").write_data(row=case.id+1, column=6, value=result)
