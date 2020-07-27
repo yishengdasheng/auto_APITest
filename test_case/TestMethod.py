@@ -1,5 +1,5 @@
 # -*- coding:utf-8 _*-
-#!/usr/bin/python3
+# !/usr/bin/python3
 
 #   author : YOYO
 #   time :  2020/3/5 21:20
@@ -28,7 +28,8 @@ header = conf.get_value("HEAD", "headers")
 wenzhou_gov_url = conf.get_value("URL", "wenzhou_gov_url")
 # 温州企业
 wenzhou_ent_url = conf.get_value("URL", "wenzhou_ent_url")
-
+# 节度使2.0线上
+governor_url = conf.get_value("URL", "governor_url")
 
 
 @ddt
@@ -43,15 +44,21 @@ class TestMethod(unittest.TestCase):
             url = wenzhou_gov_url + case.api
         elif re.match(r"wenzhou_ent*", case.title):
             url = wenzhou_ent_url + case.api
+        elif re.match(r"governor*", case.title):
+            url = governor_url + case.api
 
         # 如果data格式不对，就转化一下,变成字典,再变成json        # 这样太麻烦了，直接使用原本的数据就可以，json格式就相当于是字典形式的字符串
         # if case.data is not None and type(case.data) == str:
         #     # data = json.loads(case.data)
         #     # data = json.dumps(data)
         my_logger = DoLog()
-        my_logger.info("*********************")
+        my_logger.info("------------------------------------------------------------")
         my_logger.info("正在执行第{}条用例，请求参数：{}".format(case.id, case.data))
-        resp = requests.request(method="POST", url=url, headers=eval(header), data=case.data.encode("utf-8"))
+        if case.method == "POST" or case.method == "post":
+            pass
+            resp = requests.request(method="POST", url=url, headers=eval(header), data=case.data.encode("utf-8"))
+        elif case.method == "GET" or case.method == "get":  # get请求时，params好像不能传递str，必须要去掉引号才行
+            resp = requests.request(method="GET", url=url, params=eval(case.data))
         try:
             actual_data = resp.text
 
@@ -68,8 +75,9 @@ class TestMethod(unittest.TestCase):
             my_logger.error("执行失败\n 错误信息：{}".format(e2))
             raise e2
         finally:
-            my_logger.info("******回写数据*****")
-            DoExcel(case_data, "Sheet1").write_data(row=case.id+1, column=6, value=result)
+            if result != None:
+                my_logger.info("******执行完成，回写数据*****")
+                DoExcel(case_data, "Sheet1").write_data(row=case.id+1, column=6, value=result)
 
 
 

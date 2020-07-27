@@ -120,19 +120,19 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">2020-07-27接口自动化测试报告</h1>
 <p class='attribute'><strong>测试人员 : </strong> YOYO</p>
-<p class='attribute'><strong>开始时间 : </strong> 2020-07-27 09:55:30</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:01:57.351200</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 44，通过 40，失败 4，通过率= 90.91%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2020-07-27 14:18:00</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:02:10.597800</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 63，通过 63，通过率= 100.00%</p>
 
 <p class='description'></p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 90.91% }</a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 4 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 40 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 44 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 63 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 63 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -152,13 +152,13 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='failClass warning'>
+<tr class='passClass warning'>
     <td>test_case.TestMethod.TestMethod</td>
-    <td class="text-center">44</td>
-    <td class="text-center">40</td>
-    <td class="text-center">4</td>
+    <td class="text-center">63</td>
+    <td class="text-center">63</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',44)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',63)" class="detail" id='c1'>详细</a></td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
@@ -346,31 +346,9 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='ft1_38' class='none'>
-    <td class='failCase'><div class='testcase'>test_request_38_wenzhou_ent_明细查询_mdmidDetail</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_38' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_38'>失败</button>
-    <div id='div_ft1_38' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_38' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_38'>失败</button>
-    <div id='div_ft1_38' class="collapse in" align="left">
-    <pre>
-    
-ft1_38: 用例执行失败
-Traceback (most recent call last):
-  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
-    return func(self, *args, **kwargs)
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 64, in test_request
-    raise e1
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 58, in test_request
-    self.assertIn(case.expected, actual_data)
-AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"code":"0","msg":"验证时间戳不得为空","data":null,"timestamp":0}'
-
-
-    </pre>
-    </div>
-    </td>
+<tr id='pt1_38' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_38_wenzhou_ent_明细查询_mdmidDetail</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
 <tr id='pt1_39' class='hiddenRow'>
@@ -388,94 +366,123 @@ AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"code":"0","msg":"�
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='ft1_42' class='none'>
-    <td class='failCase'><div class='testcase'>test_request_42_wenzhou_ent_电能质量_queryDayList</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_42' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_42'>失败</button>
-    <div id='div_ft1_42' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_42' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_42'>失败</button>
-    <div id='div_ft1_42' class="collapse in" align="left">
-    <pre>
-    
-ft1_42: 用例执行失败
-Traceback (most recent call last):
-  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
-    return func(self, *args, **kwargs)
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 64, in test_request
-    raise e1
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 58, in test_request
-    self.assertIn(case.expected, actual_data)
-AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"code":"0","msg":"验证时间戳不得为空","data":null,"timestamp":0}'
-
-
-    </pre>
-    </div>
-    </td>
+<tr id='pt1_42' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_42_wenzhou_ent_电能质量_queryDayList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='ft1_43' class='none'>
-    <td class='failCase'><div class='testcase'>test_request_43_wenzhou_ent_日报_dayReport</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_43' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_43'>失败</button>
-    <div id='div_ft1_43' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_43' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_43'>失败</button>
-    <div id='div_ft1_43' class="collapse in" align="left">
-    <pre>
-    
-ft1_43: 用例执行失败
-Traceback (most recent call last):
-  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
-    return func(self, *args, **kwargs)
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 64, in test_request
-    raise e1
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 58, in test_request
-    self.assertIn(case.expected, actual_data)
-AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"code":"0","msg":"验证时间戳不得为空","data":null,"timestamp":0}'
-
-
-    </pre>
-    </div>
-    </td>
+<tr id='pt1_43' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_43_wenzhou_ent_日报_dayReport</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='ft1_44' class='none'>
-    <td class='failCase'><div class='testcase'>test_request_44_wenzhou_ent_月报_monthReport</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_44' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_44'>失败</button>
-    <div id='div_ft1_44' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_44' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_44'>失败</button>
-    <div id='div_ft1_44' class="collapse in" align="left">
-    <pre>
-    
-ft1_44: 用例执行失败
-Traceback (most recent call last):
-  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
-    return func(self, *args, **kwargs)
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 64, in test_request
-    raise e1
-  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 58, in test_request
-    self.assertIn(case.expected, actual_data)
-AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"code":"0","msg":"验证时间戳不得为空","data":null,"timestamp":0}'
+<tr id='pt1_44' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_44_wenzhou_ent_月报_monthReport</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
 
+<tr id='pt1_45' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_45_governor_back_getCustomerList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
 
-    </pre>
-    </div>
-    </td>
+<tr id='pt1_46' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_46_governor_back_findAllAssetSiteList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_47' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_47_governor_baseload</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_48' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_48_governor_queryUser</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_49' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_49_governor_bigScreen</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_50' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_50_governor_findRoomAssetList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_51' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_51_governor_queryEnosTreeParentAsset</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_52' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_52_governor_queryParamFormWork</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_53' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_53_governor_findRoomAssetList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_54' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_54_governor_getFunctionPreviewCurentData</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_55' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_55_governor_getFunctionPreviewList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_56' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_56_governor_getEnosChildrenAssetInfo</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_57' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_57_governor_getPowerQualityRealTimeCurveData</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_58' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_58_governor_getPowerQualityMeasurData</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_59' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_59_governor_getPowerQualityMeasurData</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_60' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_60_governor_getUserList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_61' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_61_governor_getGroupIdentity</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_62' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_62_governor_getRoleList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt1_63' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_request_63_governor_getGroupList</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>44</td>
-    <td>40</td>
-    <td>4</td>
+    <td>63</td>
+    <td>63</td>
     <td>0</td>
-    <td>通过率：90.91%</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
 </tr>
 </table>
 

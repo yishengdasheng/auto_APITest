@@ -41,6 +41,7 @@ class DoExcel:
             case.api = sheet.cell(i, 3).value
             case.data = sheet.cell(i, 4).value
             case.expected = sheet.cell(i, 5).value
+            case.method = sheet.cell(i, 7).value
 
             cases.append(case)
         return cases
