@@ -193,8 +193,9 @@ output_list = Array();
 /*level 调整增加只显示通过用例的分类 --Findyou
 0:Summary //all hiddenRow
 1:Failed  //pt hiddenRow, ft none
-2:Pass    //pt none, ft hiddenRow
-3:All     //pt none, ft none
+2:Error //pt hiddenRow, ft none
+3:Pass    //pt none, ft hiddenRow
+4:All     //pt none, ft none
 */
 function showCase(level) {
     trs = document.getElementsByTagName("tr");
@@ -202,7 +203,7 @@ function showCase(level) {
         tr = trs[i];
         id = tr.id;
         if (id.substr(0,2) == 'ft') {
-            if (level == 2 || level == 0 ) {
+            if (level == 3 || level == 0 ) {
                 tr.className = 'hiddenRow';
             }
             else {
@@ -221,7 +222,7 @@ function showCase(level) {
     //加入【详细】切换文字变化 --Findyou
     detail_class=document.getElementsByClassName('detail');
 	//console.log(detail_class.length)
-	if (level == 3) {
+	if (level == 4) {
 		for (var i = 0; i < detail_class.length; i++){
 			detail_class[i].innerHTML="收起"
 		}
@@ -331,8 +332,9 @@ table       { font-size: 100%; }
 <p id='show_detail_line'>
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ %(passrate)s }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ %(fail)s }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ %(Pass)s }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ %(count)s }</a>
+<a class="btn btn-error" href='javascript:showCase(2)'>错误{ %(error)s }</a>
+<a class="btn btn-success" href='javascript:showCase(3)'>通过{ %(Pass)s }</a>
+<a class="btn btn-info" href='javascript:showCase(4)'>所有{ %(count)s }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -372,9 +374,9 @@ table       { font-size: 100%; }
     <td class="text-center">%(error)s</td>
     <td class="text-center"><a href="javascript:showClassDetail('%(cid)s',%(count)s)" class="detail" id='%(cid)s'>详细</a></td>
 </tr>
-""" # variables: (style, desc, count, Pass, fail, error, cid)
+"""  # variables: (style, desc, count, Pass, fail, error, cid)
 
-    #失败 的样式，去掉原来JS效果，美化展示效果  -Findyou
+    # 失败 的样式，去掉原来JS效果，美化展示效果  -Findyou
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
@@ -391,7 +393,26 @@ table       { font-size: 100%; }
     </div>
     </td>
 </tr>
-""" # variables: (tid, Class, style, desc, status)
+"""  # variables: (tid, Class, style, desc, status)
+
+# 错误的标签
+    REPORT_TEST_ERROR_OUTPUT_TMPL = r"""
+    <tr id='%(tid)s' class='%(Class)s'>
+    <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_%(tid)s' type="button"  class="btn btn-error btn-xs collapsed" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
+    <div id='div_%(tid)s' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_%(tid)s' type="button"  class="btn btn-error btn-xs" data-toggle="collapse" data-target='#div_%(tid)s'>%(status)s</button>
+    <div id='div_%(tid)s' class="collapse in" align="left">
+    <pre>
+    %(script)s
+    </pre>
+    </div>
+    </td>
+</tr>
+"""  # variables: (tid, Class, style, desc, status)
 
     # 通过 的样式，加标签效果  -Findyou
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
@@ -680,7 +701,7 @@ class HTMLTestRunner(Template_mixin):
         name = t.id().split('.')[-1]
         doc = t.shortDescription() or ""
         desc = doc and ('%s: %s' % (name, doc)) or name
-        tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL
+        tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL or self.REPORT_TEST_ERROR_OUTPUT_TMPL
 
         # utf-8 支持中文 - Findyou
          # o and e should be byte string because they are collected from stdout and stderr?
