@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>2020-07-28接口自动化测试报告</title>
+    <title>2020-08-03接口自动化测试报告</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
@@ -119,21 +119,21 @@ function html_escape(s) {
 }
 </script>
 <div class='heading'>
-<h1 style="font-family: Microsoft YaHei">2020-07-28接口自动化测试报告</h1>
+<h1 style="font-family: Microsoft YaHei">2020-08-03接口自动化测试报告</h1>
 <p class='attribute'><strong>测试人员 : </strong> YOYO</p>
-<p class='attribute'><strong>开始时间 : </strong> 2020-07-28 09:24:29</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:02:23.053841</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 63，通过 63，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2020-08-03 18:17:04</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:01:57.408429</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 63，通过 53，失败 10，通过率= 84.13%</p>
 
 <p class='description'></p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-error" href='javascript:showCase(2)'>错误{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(3)'>通过{ 63 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 84.13% }</a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 10 }</a>
+<a class="btn btn-error" style='background:#f4e02a; color: white' href='javascript:showCase(2)'>错误{ 0 }</a>
+<a class="btn btn-success" href='javascript:showCase(3)'>通过{ 53 }</a>
 <a class="btn btn-info" href='javascript:showCase(4)'>所有{ 63 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
@@ -154,11 +154,11 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='failClass warning'>
     <td>test_case.TestMethod.TestMethod</td>
     <td class="text-center">63</td>
-    <td class="text-center">63</td>
-    <td class="text-center">0</td>
+    <td class="text-center">53</td>
+    <td class="text-center">10</td>
     <td class="text-center">0</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',63)" class="detail" id='c1'>详细</a></td>
 </tr>
@@ -393,14 +393,62 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='pt1_47' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_47_governor_baseload</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_47' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_47_governor_baseload</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_47' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_47'>失败</button>
+    <div id='div_ft1_47' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_47' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_47'>失败</button>
+    <div id='div_ft1_47' class="collapse in" align="left">
+    <pre>
+    
+ft1_47: 用例执行失败
+ 请求接口：/gateway/workflow-proxy/workflow/user/baseload 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","timestamp":1595818253252}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:18:57.995+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_48' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_48_governor_queryUser</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_48' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_48_governor_queryUser</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_48' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_48'>失败</button>
+    <div id='div_ft1_48' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_48' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_48'>失败</button>
+    <div id='div_ft1_48' class="collapse in" align="left">
+    <pre>
+    
+ft1_48: 用例执行失败
+ 请求接口：/gateway/workflow-proxy/workflow/user/queryUser 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","timestamp":1595818253252}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:18:58.152+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr id='pt1_49' class='hiddenRow'>
@@ -413,14 +461,62 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='pt1_51' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_51_governor_queryEnosTreeParentAsset</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_51' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_51_governor_queryEnosTreeParentAsset</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_51' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_51'>失败</button>
+    <div id='div_ft1_51' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_51' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_51'>失败</button>
+    <div id='div_ft1_51' class="collapse in" align="left">
+    <pre>
+    
+ft1_51: 用例执行失败
+ 请求接口：/gateway/power-data-query-proxy/power-data-query/treeAsset/queryEnosTreeParentAsset 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","timestamp":1595818253252,"baseAssetId":"gTZ7qn8u","modelIds":"smartMeter","treeId":"OCc5HsrP"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:18:59.393+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_52' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_52_governor_queryParamFormWork</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_52' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_52_governor_queryParamFormWork</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_52' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_52'>失败</button>
+    <div id='div_ft1_52' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_52' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_52'>失败</button>
+    <div id='div_ft1_52' class="collapse in" align="left">
+    <pre>
+    
+ft1_52: 用例执行失败
+ 请求接口：/gateway/power-data-query-proxy/power-data-query/data/queryParamFormWork 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","timestamp":1595818253252}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:18:59.538+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr id='pt1_53' class='hiddenRow'>
@@ -428,34 +524,178 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='pt1_54' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_54_governor_getFunctionPreviewCurentData</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_54' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_54_governor_getFunctionPreviewCurentData</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_54' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_54'>失败</button>
+    <div id='div_ft1_54' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_54' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_54'>失败</button>
+    <div id='div_ft1_54' class="collapse in" align="left">
+    <pre>
+    
+ft1_54: 用例执行失败
+ 请求接口：/gateway/power-quality-proxy/power-quality/measure/getFunctionPreviewCurentData 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","assetParentId":"gTZ7qn8u","functionType":"Voltagedeviation","pageNo":1,"treeId":"OCc5HsrP"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:18:59.927+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_55' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_55_governor_getFunctionPreviewList</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_55' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_55_governor_getFunctionPreviewList</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_55' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_55'>失败</button>
+    <div id='div_ft1_55' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_55' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_55'>失败</button>
+    <div id='div_ft1_55' class="collapse in" align="left">
+    <pre>
+    
+ft1_55: 用例执行失败
+ 请求接口：/gateway/power-quality-proxy/power-quality/measure/getFunctionPreviewList 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","assetParentId":"gTZ7qn8u","functionType":"All","pageNo":1,"treeId":"OCc5HsrP"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:19:00.062+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_56' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_56_governor_getEnosChildrenAssetInfo</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_56' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_56_governor_getEnosChildrenAssetInfo</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_56' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_56'>失败</button>
+    <div id='div_ft1_56' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_56' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_56'>失败</button>
+    <div id='div_ft1_56' class="collapse in" align="left">
+    <pre>
+    
+ft1_56: 用例执行失败
+ 请求接口：/gateway/power-quality-proxy/power-quality/treeAsset/getEnosChildrenAssetInfo 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","parentAssetId":"lVOfWGH6","tagKey":"pq","treeId":"OCc5HsrP"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:19:00.224+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_57' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_57_governor_getPowerQualityRealTimeCurveData</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_57' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_57_governor_getPowerQualityRealTimeCurveData</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_57' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_57'>失败</button>
+    <div id='div_ft1_57' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_57' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_57'>失败</button>
+    <div id='div_ft1_57' class="collapse in" align="left">
+    <pre>
+    
+ft1_57: 用例执行失败
+ 请求接口：/gateway/power-quality-proxy/power-quality/measure/getPowerQualityRealTimeCurveData 
+ 请求参数：{"userId":"user_00000015","rootOrganizeNo":"csr_00000002","assetId":"P7Vz8Fo8","functionName":"PowerFactor","dateType":"day","treeId":"OCc5HsrP","date": "2020-07-26"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:19:00.367+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_58' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_58_governor_getPowerQualityMeasurData</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_58' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_58_governor_getPowerQualityMeasurData</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_58' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_58'>失败</button>
+    <div id='div_ft1_58' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_58' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_58'>失败</button>
+    <div id='div_ft1_58' class="collapse in" align="left">
+    <pre>
+    
+ft1_58: 用例执行失败
+ 请求接口：/gateway/report-proxy/report/measure/day/getPowerQualityMeasurData 
+ 请求参数：{"assetId":"P7Vz8Fo8","time":"2020-07-27"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:19:00.633+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_59' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_request_59_governor_getPowerQualityMeasurData</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_59' class='none'>
+    <td class='failCase'><div class='testcase'>test_request_59_governor_getPowerQualityMeasurData</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_59' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_59'>失败</button>
+    <div id='div_ft1_59' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_59' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_59'>失败</button>
+    <div id='div_ft1_59' class="collapse in" align="left">
+    <pre>
+    
+ft1_59: 用例执行失败
+ 请求接口：/gateway/report-proxy/report/measure/month/getPowerQualityMeasurData 
+ 请求参数：{"assetId":"lVOfWGH6","startdate":"2020-06","lastdate":"2020-06"}
+Traceback (most recent call last):
+  File "E:\桌面\PycharmProjects\auto_APITest\libnew\ddtnew.py", line 153, in wrapper
+    return func(self, *args, **kwargs)
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 78, in test_request
+    raise e1
+  File "E:\桌面\PycharmProjects\auto_APITest\test_case\TestMethod.py", line 72, in test_request
+    self.assertIn(case.expected, actual_data)
+AssertionError: '"code":"1","msg":"SUCCESS"' not found in '{"timestamp":"2020-08-03T10:19:00.782+0000","status":500,"error":"Internal Server Error","message":"GENERAL"}'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr id='pt1_60' class='hiddenRow'>
@@ -481,10 +721,10 @@ function html_escape(s) {
 <tr id='total_row'>
     <td>Total</td>
     <td>63</td>
-    <td>63</td>
+    <td>53</td>
+    <td>10</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>通过率：84.13%</td>
 </tr>
 </table>
 

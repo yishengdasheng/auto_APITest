@@ -30,7 +30,10 @@ wenzhou_gov_url = conf.get_value("URL", "wenzhou_gov_url")
 wenzhou_ent_url = conf.get_value("URL", "wenzhou_ent_url")
 # 节度使2.0线上
 governor_url = conf.get_value("URL", "governor_url")
-
+# 苏州政府
+suzhou_gov_url = conf.get_value("URL", "suzhou_gov_url")
+# 苏州企业
+suzhou_ent_url = conf.get_value("URL", "suzhou_ent_url")
 
 @ddt
 class TestMethod(unittest.TestCase):
@@ -46,6 +49,10 @@ class TestMethod(unittest.TestCase):
             url = wenzhou_ent_url + case.api
         elif re.match(r"governor*", case.title):
             url = governor_url + case.api
+        elif re.match(r"suzhou_gov", case.title):
+            url = suzhou_gov_url + case.api
+        elif re.match(r"suzhou_ent", case.title):
+            url = suzhou_ent_url + case.api
 
         # 如果data格式不对，就转化一下,变成字典,再变成json        # 这样太麻烦了，直接使用原本的数据就可以，json格式就相当于是字典形式的字符串
         # if case.data is not None and type(case.data) == str:
@@ -67,7 +74,7 @@ class TestMethod(unittest.TestCase):
         except AssertionError as e1:
             my_logger.error(e1)
             result = "FAILED"
-            print("用例执行失败")
+            print("用例执行失败\n 请求接口：{} \n 请求参数：{}".format(case.api, case.data))
             raise e1
         except Exception as e2:
             print("请求状态：{}".format(resp.status_code))

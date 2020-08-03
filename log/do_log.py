@@ -11,7 +11,7 @@
 import logging
 from config_file.read_conf import ReadConf
 import datetime
-
+from common import contants
 
 time = datetime.date.today()
 # 获取配置文件里关于日志的数据
@@ -20,7 +20,7 @@ name = conf.get_value("LOG", "name")
 in_level = conf.get_value("LOG", "in_level")
 out_level = conf.get_value("LOG", "out_level")
 out_file_level = conf.get_value("LOG", "out_file_level")
-file_path = conf.get_value("LOG", "file_path") + name + str(time) + '.txt'
+file_path = contants.base_dir + conf.get_value("LOG", "file_path") + name + str(time) + '.txt'
 log_format = conf.get_value("LOG", "log_format")
 
 
