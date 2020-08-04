@@ -66,25 +66,26 @@ class TestMethod(unittest.TestCase):
             resp = requests.request(method="POST", url=url, headers=eval(header), data=case.data.encode("utf-8"))
         elif case.method == "GET" or case.method == "get":  # get请求时，params好像不能传递str，必须要去掉引号才行
             resp = requests.request(method="GET", url=url, params=eval(case.data))
-        try:
-            actual_data = resp.text
+        if resp.status_code == 200:
+            try:
+                actual_data = resp.text
 
-            self.assertIn(case.expected, actual_data)
-            result = "PASS"
-        except AssertionError as e1:
-            my_logger.error(e1)
-            result = "FAILED"
-            print("用例执行失败\n 请求接口：{} \n 请求参数：{}".format(case.api, case.data))
-            raise e1
-        except Exception as e2:
+                self.assertIn(case.expected, actual_data)
+                result = "PASS"
+            except AssertionError as e1:
+                my_logger.error(e1)
+                result = "FAILED"
+                print("用例执行失败\n 请求接口：{} \n 请求参数：{}".format(case.api, case.data))
+                raise e1
+            finally:
+                if result != None:
+                    my_logger.info("******执行完成，回写数据*****")
+                    DoExcel(case_data, "Sheet1").write_data(row=case.id + 1, column=6, value=result)
+        else:
             print("请求状态：{}".format(resp.status_code))
             print("接口请求失败")
-            my_logger.error("执行失败\n 错误信息：{}".format(e2))
-            raise e2
-        finally:
-            if result != None:
-                my_logger.info("******执行完成，回写数据*****")
-                DoExcel(case_data, "Sheet1").write_data(row=case.id+1, column=6, value=result)
+            my_logger.error("接口请求失败\n 错误信息：{}".format(resp.content))
+
 
 
 

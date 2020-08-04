@@ -211,7 +211,7 @@ function showCase(level) {
             }
         }
         if (id.substr(0,2) == 'pt') {
-            if (level < 2) {
+            if (level < 3) {
                 tr.className = 'hiddenRow';
             }
             else {
@@ -302,7 +302,7 @@ table       { font-size: 100%; }
 #total_row  { font-weight: bold; }
 .passCase   { color: #5cb85c; }
 .failCase   { color: #d9534f; font-weight: bold; }
-.errorCase  { color: #f0ad4e; font-weight: bold; }
+.errorCase  { color: #bda30b; font-weight: bold; }
 .hiddenRow  { display: none; }
 .testcase   { margin-left: 2em; }
 </style>
@@ -318,7 +318,7 @@ table       { font-size: 100%; }
 <p class='description'>%(description)s</p>
 </div>
 """ # variables: (title, parameters, description)
-
+# 标题及概要信息
     HEADING_ATTRIBUTE_TMPL = """<p class='attribute'><strong>%(name)s : </strong> %(value)s</p>
 """ # variables: (name, value)
 
@@ -326,13 +326,13 @@ table       { font-size: 100%; }
 
     # ------------------------------------------------------------------------
     # Report
-    #
+    # 用例执行数量统计
     # 汉化,加美化效果 --Findyou
     REPORT_TMPL = """
 <p id='show_detail_line'>
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ %(passrate)s }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ %(fail)s }</a>
-<a class="btn btn-error" style='background:#f4e02a; color: white' href='javascript:showCase(2)'>错误{ %(error)s }</a>
+<a class="btn btn-error" style='background:#f4e02a' href='javascript:showCase(2)'>错误{ %(error)s }</a>
 <a class="btn btn-success" href='javascript:showCase(3)'>通过{ %(Pass)s }</a>
 <a class="btn btn-info" href='javascript:showCase(4)'>所有{ %(count)s }</a>
 </p>
@@ -354,7 +354,7 @@ table       { font-size: 100%; }
     <td>详细</td>
 </tr>
 %(test_list)s
-<tr id='total_row'>
+<tr id='total_row'>   # 列表后的总计
     <td>Total</td>
     <td>%(count)s</td>
     <td>%(Pass)s</td>
@@ -365,6 +365,7 @@ table       { font-size: 100%; }
 </table>
 """ # variables: (test_list, count, Pass, fail, error ,passrate)
 
+# 表格主体
     REPORT_CLASS_TMPL = r"""
 <tr class='%(style)s warning'>
     <td>%(desc)s</td>
@@ -395,6 +396,7 @@ table       { font-size: 100%; }
 </tr>
 """  # variables: (tid, Class, style, desc, status)
 
+# 失败和错误的用例没有区分，所以就算增加了错误的标签，也无法分别显示
 # 错误的标签
     REPORT_TEST_ERROR_OUTPUT_TMPL = r"""
     <tr id='%(tid)s' class='%(Class)s'>
@@ -596,7 +598,7 @@ class HTMLTestRunner(Template_mixin):
         status.append('共 %s' % (result.success_count + result.failure_count + result.error_count))
         if result.success_count: status.append('通过 %s'    % result.success_count)
         if result.failure_count: status.append('失败 %s' % result.failure_count)
-        if result.error_count:   status.append('错误 %s'   % result.error_count  )
+        if result.error_count:   status.append('错误 %s'   % result.error_count)
         if status:
             status = '，'.join(status)
             self.passrate = str("%.2f%%" % (float(result.success_count) / float(result.success_count + result.failure_count + result.error_count) * 100))
@@ -704,7 +706,7 @@ class HTMLTestRunner(Template_mixin):
         tmpl = has_output and self.REPORT_TEST_WITH_OUTPUT_TMPL or self.REPORT_TEST_NO_OUTPUT_TMPL or self.REPORT_TEST_ERROR_OUTPUT_TMPL
 
         # utf-8 支持中文 - Findyou
-         # o and e should be byte string because they are collected from stdout and stderr?
+        # o and e should be byte string because they are collected from stdout and stderr?
         if isinstance(o, str):
             # TODO: some problem with 'string_escape': it escape \n and mess up formating
             # uo = unicode(o.encode('string_escape'))
